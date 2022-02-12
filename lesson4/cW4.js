@@ -88,8 +88,8 @@ function arithmeticMean(numbers){
     let sum = 0;
     for (let number of numbers) {
         sum = number + sum;
-        result = sum / numbers.length;
     }
+    result = sum / numbers.length;
     return result;
 }
 let k = arithmeticMean(array4);
