@@ -24,11 +24,14 @@ document.body.append(div2);
 //Завдання робити через цикли.
 
 let info = ['Main','Products','About us','Contacts'];
+let ulTeg = document.createElement('ul');
 for (let infoElement of info) {
-    console.log(infoElement)
-    let li = document.createElement('li');
-    li.append('ul');
-    console.log(li);
+    let liTeg = document.createElement('li');
+    liTeg.innerText = `${infoElement}`;
+    console.log(liTeg);
+    ulTeg.append(liTeg);
+    console.log(ulTeg);
+    document.body.append(ulTeg)
 }
 
 

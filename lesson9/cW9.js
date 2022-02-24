@@ -93,12 +93,18 @@ for (let simpson of simpsons2) {
     console.log(simpson);
     let div = document.createElement('div');
     div.classList.add('member');
+    console.log(div);
     document.body.appendChild(div);
     let nameDiv = document.createElement('div');
+    nameDiv.innerText = simpson.name;
     let surnameDiv = document.createElement('div');
+    surnameDiv.innerText = simpson.surname;
     let ageDiv = document.createElement('div');
+    ageDiv.innerText = simpson.age;
     let infoDiv = document.createElement('div');
+    infoDiv.innerText = simpson.info;
     let photoDiv = document.createElement('div');
+    photoDiv.innerText = simpson.photo;
     div.append(nameDiv, ageDiv, surnameDiv, infoDiv, photoDiv);
     console.log(div);
 }
