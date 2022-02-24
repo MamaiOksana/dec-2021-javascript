@@ -27,7 +27,7 @@ let info = ['Main','Products','About us','Contacts'];
 let ulTeg = document.createElement('ul');
 for (let infoElement of info) {
     let liTeg = document.createElement('li');
-    liTeg.innerText = `${infoElement}`;
+    liTeg.innerText = infoElement;
     console.log(liTeg);
     ulTeg.append(liTeg);
     console.log(ulTeg);
