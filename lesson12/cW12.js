@@ -30,7 +30,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
                             divComments.classList.add('comments');
                             divComments.innerHTML = `
                         <h3> ID- ${comment.id}</h3>
-                        <h4> Title- ${comment.title}</h4>
+                        <h4> Title- ${post.title}</h4>
                         <h5> mail- ${comment.email}</h5>
                         <h6> Body- ${comment.body} </h6>`;
                             card.append(divComments)
