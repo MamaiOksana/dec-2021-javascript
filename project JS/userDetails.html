@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .user-details{
+           background: #b9e1b7;
+        }
+        .postCon{
+            background: olive;
+        }
+        .postDetailsButton{
+           width: 70%;
+            margin: 0 auto;
+            display: block;
+        }
+        .posts{
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        .post{
+            background: #b8d9b6;
+            margin: 5px;
+            width: 100px;
+            margin-left: calc(10% - 50px);
+            margin-right: calc(10% - 50px);
+        }
+    </style>
+</head>
+<body>
+<h2>Users details page</h2>
+<div class="user-details"></div>
+<div class="posts"></div>
+<button class ="postDetailsButton">postDetailsButton</button>
+<script>
+    let url = new URL(location.href)
+    let user = JSON.parse(url.searchParams.get('data'));
+    console.log(user);
+    let userDetailsCon = document.getElementsByClassName('user-details')[0];
+    let postsCon = document.getElementsByClassName('posts')[0];
+    let postDetailsButton = document.getElementsByClassName('postDetailsButton')[0];
+
+    userDetailsCon.innerText = `${JSON.stringify(user)}`;
+
+    postDetailsButton.onclick = function () {
+         this.disabled = true;
+        fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+        .then(value => value.json())
+        .then(value => {
+            for (let postItem of value) {
+                let postCon = document.createElement('div');
+                postCon.classList.add('post')
+                postCon.innerText = postItem.title;
+                let postDetBtn = document.createElement('button');
+                postDetBtn.innerText = 'post details';
+                postDetBtn.onclick = function () {
+                    location.href = `postDetails.html?data=${JSON.stringify(postItem)}`;
+                };
+               postCon.append( postDetBtn);
+                postsCon.append(postCon);
+            }
+        });
+    };
+</script>
+</body>
+</html>
